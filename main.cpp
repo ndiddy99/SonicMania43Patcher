@@ -3,15 +3,15 @@
 using namespace std;
 int main() {
 	DWORD memAddrs[] = {
-    0x00838768,
-    0x00906158,
-    0x009060D8,
-    0x008FFA58,
-    0x008CE7B4,
-    0x008CE798,
-    0x0076E6E0,
-    0x0076DEE0,
-    0x00639C8C,
+    	0x00838768,
+    	0x00906158,
+    	0x009060D8,
+    	0x008FFA58,
+    	0x008CE7B4,
+    	0x008CE798,
+    	0x0076E6E0,
+    	0x0076DEE0,
+    	0x00639C8C,
 	};
 	DWORD width=320; //change to the width you want Mania to render to (default is 424)
 	DWORD processID;
