@@ -1,10 +1,8 @@
 #include <Windows.h>
 #include <iostream>  
 using namespace std;
-typedef unsigned int u32;
 int main() {
-	//u32[] memAddrs={438768,506158,5060D8,4FFA58,4CE7B4,4CE798,36E6E0,36DEE0,239C8C};
-	u32 memAddrs[] = {
+	DWORD memAddrs[] = {
     0x00838768,
     0x00906158,
     0x009060D8,
@@ -14,11 +12,10 @@ int main() {
     0x0076E6E0,
     0x0076DEE0,
     0x00639C8C,
-};
-	DWORD width=320; //change to the width you want Mania to render to
+	};
+	DWORD width=320; //change to the width you want Mania to render to (default is 424)
 	DWORD processID;
-	HWND Window = NULL;
-	Window=FindWindow(NULL,"Sonic Mania");
+	HWND Window=FindWindow(NULL,"Sonic Mania");
 	if (!GetWindowThreadProcessId(Window,&processID)) {
 		cerr << "couldn't find the Sonic Mania process, " << GetLastError() << endl;
 		return 1;
@@ -33,7 +30,7 @@ int main() {
 	cout << "patching..." << endl;
 	int i;
 	for (i=0; i < 9; i++) {
-		cout << "patching memory value " <<(i+1) << "of 9..." << endl;
+		cout << "patching memory value " <<(i+1) << " of 9..." << endl;
 		int memory;
 		ReadProcessMemory(handle,(LPVOID)memAddrs[i], &memory,sizeof(DWORD) ,NULL);
 		//if (!ReadProcessMemory(handle,(LPVOID)memaddrs[i], &memory,sizeof(DWORD) ,NULL))
